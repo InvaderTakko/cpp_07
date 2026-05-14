@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:07 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/14 15:17:08 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/14 16:30:31 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 #include <iostream>
 #include <string>
 
-int main( void ) {
-    int a = 2;
-    int b = 3;
-
+int main( void )
+{
+    //int a = 2;
+    //int b = 3;
+	char a = 'a';
+	char b = 'b';
+	std::cout << "a = " << a << ", b = " << b << std::endl;
     ::swap( a, b );
     std::cout << "a = " << a << ", b = " << b << std::endl;
     std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
