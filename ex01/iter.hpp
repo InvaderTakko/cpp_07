@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:14 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/25 14:15:00 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/25 16:03:39 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,9 @@ template <typename T, typename F> void iter(T *array, const size_t length,
 	}
 }
 
+//template <typename T>
+//void iter(T *array, size_t length, void (*func)(T &)); would still infer the type 
+// making this possible :
+// his works without <int>:
+//::iter(arr, len, printElement);
 #endif
