@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:14 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/15 17:59:12 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/25 14:01:50 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include <cstddef>
 # include <iostream>
-#include <type_traits>
 
-template <typename T> void iter(T *array, const size_t length,
-	void (*func)(T &))
+template <typename T, typename F> void iter(T *array, const size_t length,
+	F func) // dont use void (*func)(T &) so function can take const T void print(const int&), F becomes void (*)(const int&).
+//void increment(int&), F becomes void (*)(int&).
 {
 	if (array == nullptr || func == nullptr)
 		return;
