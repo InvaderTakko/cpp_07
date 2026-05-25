@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:17 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/15 19:49:10 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/25 14:17:14 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	main(void)
 	std::string strArr[] = {"hello", "world", "42"};
 	len = 5;
 	std::cout << "Int array: ";
-	::iter(arr, len, printElement);
+	::iter(arr, len, printElement<int>);
 	std::cout << std::endl;
 	std::cout << "String array: ";
-	::iter(strArr, 3, printElement);
+	::iter(strArr, 3, printElement<std::string>);
 	std::cout << std::endl;
 	std::cout << "Int array: ";
-	::iter(arr, len, incrementElement);
-	::iter(arr, len, printElement);
+	::iter(arr, len, incrementElement<int>);
+	::iter(arr, len, printElement<int>);
 	std::cout << std::endl;
 	// std::cout << "String array: ";
 	// ::iter(strArr, 1, incrementElement);

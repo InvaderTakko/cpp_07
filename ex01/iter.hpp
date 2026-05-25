@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:14 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/25 14:01:50 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/25 14:15:00 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 
 # include <cstddef>
 # include <iostream>
+// dont use void (*func)(T &) so function can take const T void print(const int&),
+//	F becomes void (*)(const int&).
+// void increment(int&), F becomes void (*)(int&).
 
 template <typename T, typename F> void iter(T *array, const size_t length,
-	F func) // dont use void (*func)(T &) so function can take const T void print(const int&), F becomes void (*)(const int&).
-//void increment(int&), F becomes void (*)(int&).
+	F func)
 {
-	if (array == nullptr || func == nullptr)
-		return;
 	size_t	i;
 
+	if (array == nullptr || func == nullptr)
+		return ;
 	i = 0;
 	while (i < length)
 	{
