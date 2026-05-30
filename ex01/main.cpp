@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 15:17:17 by sruff             #+#    #+#             */
-/*   Updated: 2026/05/25 14:17:14 by sruff            ###   ########.fr       */
+/*   Updated: 2026/05/30 15:00:37 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ template <typename T> void incrementElement(T &element)
 	element++; // element cant be NULL so no checks
 }
 
+void printConstInt(const int &element)
+{
+	std::cout << element << " ";
+}
+
+void addOne(int &element)
+{
+	element++;
+}
+
 int	main(void)
 {
 	int		arr[] = {1, 2, 3, 4, 5};
@@ -43,6 +53,24 @@ int	main(void)
 	::iter(arr, len, incrementElement<int>);
 	::iter(arr, len, printElement<int>);
 	std::cout << std::endl;
+
+	const int constArr[] = {10, 20, 30};
+	std::cout << "Const int array: ";
+	::iter(constArr, 3, printConstInt);
+	std::cout << std::endl;
+
+	int plainArr[] = {0, 0, 0};
+	std::cout << "Plain function addOne: ";
+	::iter(plainArr, 3, addOne);
+	::iter(plainArr, 3, printElement<int>);
+	std::cout << std::endl;
+
+	double dblArr[] = {1.1, 2.2, 3.3};
+	std::cout << "Double array: ";
+	::iter(dblArr, 3, incrementElement<double>);
+	::iter(dblArr, 3, printElement<double>);
+	std::cout << std::endl;
+
 	// std::cout << "String array: ";
 	// ::iter(strArr, 1, incrementElement);
 	// ::iter(strArr, 3, printElement);
