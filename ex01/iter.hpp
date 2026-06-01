@@ -36,6 +36,6 @@ template <typename T, typename F> void iter(T *array, const size_t length,
 //template <typename T>
 //void iter(T *array, size_t length, void (*func)(T &)); would still infer the type 
 // making this possible :
-// his works without <int>:
+// this works without <int>:
 //::iter(arr, len, printElement);
 #endif

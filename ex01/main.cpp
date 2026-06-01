@@ -56,12 +56,12 @@ int	main(void)
 
 	const int constArr[] = {10, 20, 30};
 	std::cout << "Const int array: ";
-	::iter(constArr, 3, printConstInt);
+	::iter(constArr, 3, printConstInt); // since its always int doesnt need type info
 	std::cout << std::endl;
 
 	int plainArr[] = {0, 0, 0};
 	std::cout << "Plain function addOne: ";
-	::iter(plainArr, 3, addOne);
+	::iter(plainArr, 3, addOne); // since its always int doesnt need type info
 	::iter(plainArr, 3, printElement<int>);
 	std::cout << std::endl;
 
@@ -72,8 +72,8 @@ int	main(void)
 	std::cout << std::endl;
 
 	// std::cout << "String array: ";
-	// ::iter(strArr, 1, incrementElement);
-	// ::iter(strArr, 3, printElement);
+	// ::iter(strArr, 1, incrementElement<std::string>);
+	// ::iter(strArr, 3, printElement<std::string>);
 	// std::cout << std::endl;
 	return (0);
 }
