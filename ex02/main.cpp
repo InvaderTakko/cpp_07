@@ -6,7 +6,7 @@
 /*   By: sruff <sruff@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 14:46:53 by sruff             #+#    #+#             */
-/*   Updated: 2026/06/01 14:54:57 by sruff            ###   ########.fr       */
+/*   Updated: 2026/06/02 17:11:32 by sruff            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
 	dump(nums);
 
 	std::cout << "------------------" << std::endl;
-	// copy ctor: mutate the clone, original stays put
+	// copy constructor: mutate the clone, original stays independant
 	Array<int> clone(nums);
 	clone[0] = 999;
 	std::cout << "nums[0]=" << nums[0] << "  clone[0]=" << clone[0] << std::endl;
@@ -53,21 +53,23 @@ int	main(void)
 	std::cout << "nums[1]=" << nums[1] << "  assigned[1]=" << assigned[1] << std::endl;
 
 	std::cout << "------------------" << std::endl;
-	// classic footgun. self-assign better not blow up.
+	//footgun self-assign better not blow up
 	Array<int> &same = nums;
 	nums = same;
 	nums[2] = 42;
-	std::cout << "self-assign ok, nums[2]=" << nums[2] << std::endl;
+	std::cout << "self-assign ok, nums[2]=" << nums[2] << " same[2]= "<<same[2]<< std::endl;
 
 	std::cout << "------------------" << std::endl;
-	// int is boring. strings actually test deep copy.
+	// strings actually test deep copy. int doesnt
 	Array<std::string> words(3);
 	words[0] = "templates";
 	words[1] = "are";
 	words[2] = "fine";
 	Array<std::string> wordsCopy(words);
 	wordsCopy[0] = "allegedly";
-	std::cout << "words[0]=" << words[0] << "  copy[0]=" << wordsCopy[0] << std::endl;
+	dump(words);
+	dump(wordsCopy);
+	//std::cout << "words[0]=" << words[0] << "  copy[0]=" << wordsCopy[0] << "  copy[1]=" << wordsCopy[1] << std::endl;
 
 	std::cout << "------------------" << std::endl;
 	// bounds checks on mutable, empty, and const paths
